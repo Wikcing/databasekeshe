@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生列表</title>
+</head>
+<body>
+    <h1>学生列表</h1>
+
+
+    <!-- 筛选按钮 -->
+    <div>
+        <a href="{{ url_for('students_list', status='已通过', tutor_id=tutor_id) }}" class="btn btn-primary">筛选已通过</a>
+        <a href="{{ url_for('students_list', status='已拒绝', tutor_id=tutor_id) }}" class="btn btn-secondary">筛选已拒绝</a>
+        <a href="{{ url_for('students_list', tutor_id=tutor_id) }}" class="btn btn-default">显示所有学生</a>
+    </div>
+
+    <!-- 学生列表展示 -->
+    <table border="1">
+        <tr>
+            <th>学生ID</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>本科信息</th>
+            <th>初试成绩</th>
+            <th>复试成绩</th>
+            <th>专业ID</th>
+            <th>选择状态</th>
+            <th>录取状态</th>
+            <th>导师1</th>
+            <th>导师2</th>
+            <th>导师3</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.student_id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.undergrad_info }}</td>
+            <td>{{ student.initial_score }}</td>
+            <td>{{ student.retest_score }}</td>
+            <td>{{ student.major_id }}</td>
+            <td>{{ student.status }}</td>
+            <td>{{ student.admission_status }}</td>
+            <td>{{ student.tutor_name_1 or '无' }}</td>
+            <td>{{ student.tutor_name_2 or '无' }}</td>
+            <td>{{ student.tutor_name_3 or '无' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

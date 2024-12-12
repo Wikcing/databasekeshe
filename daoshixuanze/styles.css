@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+}
+
+#filter-section {
+    margin-bottom: 20px;
+}
+
+#student-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#student-list th, #student-list td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
